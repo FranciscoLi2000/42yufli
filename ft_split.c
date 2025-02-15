@@ -1,20 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yufli <marvin@42.fr>                       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/02 11:37:00 by yufli             #+#    #+#             */
-/*   Updated: 2025/01/02 18:44:28 by yufli            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include <unistd.h>
-#include <stdlib.h>
 #include "libft.h"
-
-char	**ft_split(char const *s, char c);
 
 static char	**allocate_substrings(char const *s, char c, int *count)
 {
