@@ -1,18 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_putptr.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yufli <marvin@42.fr>                       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/14 22:22:37 by yufli             #+#    #+#             */
-/*   Updated: 2025/02/14 22:27:30 by yufli            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "libft.h"
 
-#include "ft_printf.h"
-
-static void	ft_puthex_ptr(t_list *data, unsigned long long n)
+static void	ft_puthex_ptr(t_fmt *data, unsigned long long n)
 {
 	char	c;
 	int		rem;
@@ -27,11 +15,11 @@ static void	ft_puthex_ptr(t_list *data, unsigned long long n)
 	ft_putchar(data, c);
 }
 
-void	ft_putptr(t_list *data, unsigned long long ptr)
+void	ft_putptr(t_fmt *data, unsigned long long ptr)
 {
 	if (ptr == 0)
 	{
-		ft_putstr(data, "0x0");
+		ft_putstr(data, "(nil)");
 		return ;
 	}
 	ft_putstr(data, "0x");

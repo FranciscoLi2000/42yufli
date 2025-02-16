@@ -1,18 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_puthex.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yufli <marvin@42.fr>                       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/14 22:15:36 by yufli             #+#    #+#             */
-/*   Updated: 2025/02/14 22:27:01 by yufli            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "libft.h"
 
-#include "ft_printf.h"
-
-void	ft_puthex(t_list *data, unsigned int n, char specifier)
+void	ft_puthex(t_fmt *data, unsigned int n, char specifier)
 {
 	char	c;
 	int		remainder;

@@ -1,18 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_putunbr.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yufli <marvin@42.fr>                       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/14 22:11:45 by yufli             #+#    #+#             */
-/*   Updated: 2025/02/14 22:12:56 by yufli            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "libft.h"
 
-#include "ft_printf.h"
-
-void	ft_putunbr(t_list *data, unsigned int n)
+void	ft_putunbr(t_fmt *data, unsigned int n)
 {
 	if (n >= 10)
 		ft_putunbr(data, n / 10);

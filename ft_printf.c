@@ -1,28 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yufli <marvin@42.fr>                       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/14 20:17:35 by yufli             #+#    #+#             */
-/*   Updated: 2025/02/14 22:30:03 by yufli            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#include "libft.h"
 
-#include "ft_printf.h"
-
-size_t	ft_strlen(const char *s)
-{
-	size_t	len;
-
-	len = 0;
-	while (s[len])
-		len++;
-	return (len);
-}
-
-void	parse_format(t_list *data)
+void	parse_format(t_fmt *data)
 {
 	while (*data->format)
 	{
@@ -37,7 +15,7 @@ void	parse_format(t_list *data)
 	}
 }
 
-void	handle_conversion(t_list *data)
+void	handle_conversion(t_fmt *data)
 {
 	if (*data->format == 'c')
 		ft_putchar(data, va_arg(data->ap, int));
@@ -57,12 +35,12 @@ void	handle_conversion(t_list *data)
 
 int	ft_printf(const char *format, ...)
 {
-	t_list	data;
+	t_fmt	data;
 
-	data.ret = 0;
-	data.format = format;
-	va_start(data.ap, format);
+	data->ret = 0;
+	data->format = format;
+	va_start(data->ap, format);
 	parse_format(&data);
-	va_end(data.ap);
-	return (data.ret);
+	va_end(data->ap);
+	return (data->ret);
 }
