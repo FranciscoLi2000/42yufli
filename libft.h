@@ -40,7 +40,7 @@ int	ft_atoi(const char *nptr);
 
 /* String operations */
 size_t	ft_strlen(const char *s);
-int	ft_strncmp(const char *s1, const char *s2);
+int	ft_strncmp(const char *str1, const char *str2, unsigned int n);
 
 /* Character search */
 char	*ft_strchr(const char *s, int c);

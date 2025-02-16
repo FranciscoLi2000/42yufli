@@ -37,10 +37,10 @@ int	ft_printf(const char *format, ...)
 {
 	t_fmt	data;
 
-	data->ret = 0;
-	data->format = format;
-	va_start(data->ap, format);
+	data.ret = 0;
+	data.format = format;
+	va_start(data.ap, format);
 	parse_format(&data);
-	va_end(data->ap);
-	return (data->ret);
+	va_end(data.ap);
+	return (data.ret);
 }
