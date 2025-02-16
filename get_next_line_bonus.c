@@ -82,7 +82,7 @@ static char	*extract_line(char *line_buffer)
 	return (left_c);
 }
 
-char	*get_next_line(int fd)
+char	*get_next_line_bonus(int fd)
 {
 	/* There's only a minimal difference to make the bonus work
 	 * It's basically transforming our static char * variable to an array of char *

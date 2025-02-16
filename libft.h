@@ -125,5 +125,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 /* Read a file line by line */
 char	*get_next_line(int fd);
+char	*get_next_line_bonus(int fd);
 
 #endif
