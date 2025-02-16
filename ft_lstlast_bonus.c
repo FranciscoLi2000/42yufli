@@ -1,17 +1,5 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yufli <marvin@42.fr>                       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/07 22:50:48 by yufli             #+#    #+#             */
-/*   Updated: 2025/02/15 07:09:27 by yufli            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "libft.h"
-
+/* For this one, we basically have to do the same thing as for the ft_lstsize function but we don't need to count how many elements are in the list nor return the count, but we directly return the tmp element*/
 t_list	*ft_lstlast(t_list *lst)
 {
 	if (!lst)

@@ -1,18 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yufli <marvin@42.fr>                       +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/07 22:58:50 by yufli             #+#    #+#             */
-/*   Updated: 2025/02/15 07:13:02 by yufli            ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "libft.h"
-#include <stdlib.h>
-
+/* This functions works similarly as the ft_lstdelone function, but instead of removing only one element,
+it removes the element passed as parameter as well as all the following elements */
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
 	t_list	*current;
