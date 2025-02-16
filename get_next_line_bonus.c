@@ -84,7 +84,11 @@ static char	*extract_line(char *line_buffer)
 
 char	*get_next_line(int fd)
 {
-	static char	*left_c;
+	/* There's only a minimal difference to make the bonus work
+	 * It's basically transforming our static char * variable to an array of char *
+	 * as you can see I set the number of elements of the array to 
+	 * the constant MAX_FD (see get_next_line.h to see what it is) */
+	static char	*left_c[MAX_FD];
 	char		*line;
 	char		*buffer;
 
@@ -98,21 +102,34 @@ char	*get_next_line(int fd)
 	 * was open in 'modify only', that means we can't read it. */
 	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
 	{
-		free(left_c);
+		/* as we changed our static char * to an array
+		 * we have to specify wich index we wanna work on
+		 * the easier thing to do is to set it to fd */
+		free(left_c[fd]);
 		free(buffer);
-		left_c = NULL;
+		left_c[fd] = NULL;
 		buffer = NULL;
-		return (NULL);
+		return (0);
 	}
 	if (!buffer)
 		return (NULL);
-	line = read_line(fd, left_c, buffer);
+	/* again here, we want to store the left characters in 
+	 * the array at the index of the fd, so if we have another fd
+	 * we won't be overwriting what was left from the other fd
+	 * 	 	 	 */
+	line = read_line(fd, left_c[fd], buffer);
 	/* We have to free the buffer variable here since we'll not be using
 	 * it later in the function, freeing it prevents memory leaks. */
 	free(buffer);
 	buffer = NULL;
 	if (!line)
 		return (NULL);
-	left_c = extract_line(line);
+	/* and here again, we have to switch from left_c to left_c[fd]
+	 * that's the last thing we have to change, all the other place
+	 * we use left_c (in all other functions), we use it as a string
+	 * therefore, because we are passing left_c[fd] as parameter
+	 * we basically are passing strings as parameter
+	 * so no problem there, and nothing to change */
+	left_c[fd] = extract_line(line);
 	return (line);
 }

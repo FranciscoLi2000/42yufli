@@ -5,9 +5,14 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
+# include <fcntl.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
+# endif
+
+# ifndef MAX_FD
+#  define MAX_FD 1024
 # endif
 
 /* Formatted output */
@@ -102,7 +107,7 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 
-/* bonus */
+/* libft bonus */
 typedef struct	s_list
 {
 	void		*content;
@@ -118,9 +123,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
+/* Read a file line by line */
 char	*get_next_line(int fd);
-char	*read_and_store(int fd, char *stash);
-char	*extract_line(char *stash);
-char	*save_remaining(char *stash);
 
 #endif
