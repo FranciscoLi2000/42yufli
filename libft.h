@@ -22,7 +22,20 @@ typedef struct s_fmt
 	size_t		ret;
 	const char	*format;
 }	t_fmt;
+typedef struct s_spec
+{
+	char	length_mod[3];/* 长度修饰符，如 "", "l", "ll", "h", "hh" */
+	char	type;/* 转换说明符 */
+	int	flag_hash;/* '#' 标志：0 表示未设置，1 表示已设置 */
+	int	flag_zero;/* '0' 标志 */
+	int	flag_minus;/* '-' 标志 */
+	int	flag_space;
+	int	flag_plus;
+	int	width;/* 字段宽度，精度，未指定时可以设为 -1 */
+	int	precision;
+}	t_spec;
 int	ft_printf(const char *format, ...);
+void	handle_spec(t_spec *spec);
 void	parse_format(t_fmt *data);
 void	handle_conversion(t_fmt *data);
 void	ft_putchar(t_fmt *data, char c);
